@@ -28,7 +28,7 @@ const child = ({ styled, state, actions }: ChildProps) => {
   return (
     <>
       <ThemeStyleProvider theme={theme}>
-        <SelectTheme actions={actions} />
+        <SelectTheme state={state} actions={actions} />
         <Container>
           <Router />
         </Container>

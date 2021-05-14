@@ -5,12 +5,15 @@ import ThemeIcon from "./icon";
 import { complementaryColor } from "@/utils/colors";
 
 type SelectThemeProps = {
+  state: {
+    theme: string
+  }
   actions: {
     setTheme: Function
   }
 }
 
-const SelectTheme = ({ actions }: SelectThemeProps) => {
+const SelectTheme = ({ state, actions }: SelectThemeProps) => {
   const { styled } = theme;
   const [theme_list, setThemeList] = useState(Object.entries(themes).slice(1));
   const ThemeIconList = styled.div`
@@ -24,9 +27,11 @@ const SelectTheme = ({ actions }: SelectThemeProps) => {
     height: 30px;
     border-radius: 5px;
     padding: 10px;
+    transition: height 0.4s linear;
     &:hover {
       background-color: ${({ theme }) => complementaryColor(theme.colors.backgroundColor)}22;
       height: ${theme_list.length * 40 - 10}px;
+      transition: height 0.4s linear, background-color 0.2s linear;
     }
   `;
   const IconContainer = styled.div`
@@ -37,9 +42,11 @@ const SelectTheme = ({ actions }: SelectThemeProps) => {
 
   const onClick = (theme: [string, ThemeType]) => {
     const [key] = theme;
-    actions.setTheme(key);
-    const temp_list = [...theme_list.filter(([k]) => key !== k)];
-    setThemeList([theme, ...temp_list]);
+    if (state.theme !== key) {
+      actions.setTheme(key);
+      const temp_list = [...theme_list.filter(([k]) => key !== k)];
+      setThemeList([theme, ...temp_list]);
+    }
   };
   return (
     <ThemeIconList>
