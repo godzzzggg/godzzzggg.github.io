@@ -2,8 +2,8 @@ import { ThemeType } from './index';
 
 const theme: ThemeType = {
   colors: {
-    fontColor: '#f38748',
-    backgroundColor: '#ffffff',
+    fontColor: '#564c4d',
+    backgroundColor: '#ecdfcf',
   },
 };
 

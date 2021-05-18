@@ -1,8 +1,8 @@
-import type { CreateStyledComponent, StyledOptions } from "@emotion/styled";
-import type { FilteringStyledOptions } from "@emotion/styled/types/base";
-import type { PropsOf } from "@emotion/react";
-import { ThemeProvider as BaseThemeProvider } from "@emotion/react";
-import _styled from "@emotion/styled";
+import type { CreateStyledComponent, StyledOptions } from '@emotion/styled';
+import type { FilteringStyledOptions } from '@emotion/styled/types/base';
+import type { PropsOf } from '@emotion/react';
+import { ThemeProvider as BaseThemeProvider } from '@emotion/react';
+import _styled from '@emotion/styled';
 
 // emotion 11
 export interface CreateStyled<Theme> {

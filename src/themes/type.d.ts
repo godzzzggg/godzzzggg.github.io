@@ -1,8 +1,8 @@
 type ThemeType = {
   colors: {
-    fontColor: string
-    backgroundColor: string
-  }
-}
+    fontColor: string;
+    backgroundColor: string;
+  };
+};
 
 export default ThemeType;
