@@ -5,8 +5,12 @@ import theme from "@/themes/styled";
 const Main: React.FC = () => {
   const { styled } = theme;
   const MainContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     max-width: 420px;
     width: 100%;
+    height: 100vh;
   `;
   // 아래에서 위로 올라오는 효과, opacity 조정
   const HoverText = styled.div`
@@ -44,18 +48,18 @@ const Main: React.FC = () => {
     }
   `;
 
-  const [hover_text, setText] = useState('　');
+  const [hover_text, setText] = useState("　");
   const buttons = [
-    { title: '소개', href: '/introduce', hover: 'I AM' },
-    { title: '프로젝트', href: '/projects', hover: 'PROJECTS' },
+    { title: "소개", href: "/introduce", hover: "I AM" },
+    { title: "프로젝트", href: "/projects", hover: "PROJECTS" },
   ];
   const onMouseEnter = (index: number) => setText(buttons[index].hover);
-  const onMouseLeave = () => setText('　');
+  const onMouseLeave = () => setText("　");
   return (
     <MainContainer>
       <HoverText>{hover_text}</HoverText>
       <ButtonContainer>
-        {buttons.map((btn, i) =>
+        {buttons.map((btn, i) => (
           <Button
             key={`btn-${i}`}
             to={btn.href}
@@ -64,7 +68,7 @@ const Main: React.FC = () => {
           >
             {btn.title}
           </Button>
-        )}
+        ))}
       </ButtonContainer>
     </MainContainer>
   );

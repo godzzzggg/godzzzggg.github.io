@@ -4,6 +4,7 @@ const THEMES = Object.freeze({
   BLACK: 'Black',
   ORANGE: 'Orange',
   MintChoco: 'MintChoco',
+  Warm: 'Warm',
 });
 
 export default THEMES;

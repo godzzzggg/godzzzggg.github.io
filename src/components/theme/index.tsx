@@ -1,21 +1,23 @@
-import { useState } from "react";
-import theme from "@/themes/styled";
-import themes, { ThemeType } from "@/themes";
-import ThemeIcon from "./icon";
-import { complementaryColor } from "@/utils/colors";
+import theme from '@/themes/styled';
+import { ThemeType } from '@/themes';
+import ThemeIcon from './icon';
+import { complementaryColor } from '@/utils/colors';
 
 type SelectThemeProps = {
   state: {
-    theme: string
-  }
+    theme: string;
+    theme_list: [string, ThemeType][];
+  };
   actions: {
-    setTheme: Function
-  }
-}
+    setTheme: Function;
+    setThemeList: Function;
+  };
+};
 
 const SelectTheme = ({ state, actions }: SelectThemeProps) => {
   const { styled } = theme;
-  const [theme_list, setThemeList] = useState(Object.entries(themes).slice(1));
+  const { theme_list } = state;
+  const { setThemeList } = actions;
   const ThemeIconList = styled.div`
     overflow: hidden;
     position: absolute;
@@ -29,7 +31,8 @@ const SelectTheme = ({ state, actions }: SelectThemeProps) => {
     padding: 10px;
     transition: height 0.4s linear;
     &:hover {
-      background-color: ${({ theme }) => complementaryColor(theme.colors.backgroundColor)}22;
+      background-color: ${({ theme }) =>
+        complementaryColor(theme.colors.backgroundColor)}22;
       height: ${theme_list.length * 40 - 10}px;
       transition: height 0.4s linear, background-color 0.2s linear;
     }
@@ -50,7 +53,7 @@ const SelectTheme = ({ state, actions }: SelectThemeProps) => {
   };
   return (
     <ThemeIconList>
-      {theme_list.map((theme) =>
+      {theme_list.map((theme) => (
         <IconContainer key={theme[0]}>
           <ThemeIcon
             backgroundColor={theme[1].colors.backgroundColor}
@@ -58,9 +61,9 @@ const SelectTheme = ({ state, actions }: SelectThemeProps) => {
             onClick={() => onClick(theme)}
           />
         </IconContainer>
-      )}
+      ))}
     </ThemeIconList>
   );
-}
+};
 
 export default SelectTheme;

@@ -1,18 +1,25 @@
-import { ThemeProvider, ThemeConsumer, ThemeStyleProvider } from "@/contexts/theme";
-import Themes from "@/themes";
-import SelectTheme from "@/components/theme";
-import Router from "@/router";
+import {
+  ThemeProvider,
+  ThemeConsumer,
+  ThemeStyleProvider,
+} from '@/contexts/theme';
+import Themes, { ThemeType } from '@/themes';
+import Header from '@/components/header';
+import Router from '@/router';
+import TopButton from '@/components/top';
 import './App.css';
 
 type ChildProps = {
-  styled: any,
+  styled: any;
   state: {
-    theme: string
-  }
+    theme: string;
+    theme_list: [string, ThemeType][];
+  };
   actions: {
-    setTheme: Function
-  }
-}
+    setTheme: Function;
+    setThemeList: Function;
+  };
+};
 
 const child = ({ styled, state, actions }: ChildProps) => {
   const theme = Themes[state.theme] || Themes.Default;
@@ -28,10 +35,11 @@ const child = ({ styled, state, actions }: ChildProps) => {
   return (
     <>
       <ThemeStyleProvider theme={theme}>
-        <SelectTheme state={state} actions={actions} />
+        <Header state={state} actions={actions} />
         <Container>
           <Router />
         </Container>
+        <TopButton />
       </ThemeStyleProvider>
     </>
   );
