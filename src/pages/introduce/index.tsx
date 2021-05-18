@@ -127,7 +127,7 @@ const Introduce: React.FC = () => {
         },
         {
           title: 'MBTI',
-          date: 'ISFJ',
+          date: 'ISFJ (2021.05)',
         },
         {
           title: '메일',
