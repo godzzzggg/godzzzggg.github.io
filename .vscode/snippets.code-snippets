@@ -1,0 +1,61 @@
+{
+	// Place your godzzzggg.github.io 작업 영역 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"테마가 import된 함수형 컴포넌트": {
+		"scope": "javascriptreact",
+		"prefix": "themed fc",
+		"body": [
+			"import theme from '@/themes/styled';\n",
+			"const $1 = () => {",
+			"\tconst { styled } = theme;",
+			"\treturn (<></>);",
+			"};\n",
+			"export default $1;\n",
+		],
+		"description": "Log output to console"
+	},
+	"테마가 import된 함수형 컴포넌트(type)": {
+		"scope": "typescriptreact",
+		"prefix": "themed fc",
+		"body": [
+			"import theme from '@/themes/styled';\n",
+			"type $1Props = {\n\t",
+			"}\n",
+			"const $1 = (props: $1Props) => {",
+			"\tconst { styled } = theme;",
+			"\treturn (<></>);",
+			"};\n",
+			"export default $1;\n",
+		],
+		"description": "Log output to console"
+	},
+	"새로운 테마(type)": {
+		"scope": "typescript",
+		"prefix": "new theme",
+		"body": [
+			"import { ThemeType } from './index';\n",
+			"const theme: ThemeType = {",
+			"\tcolors: {",
+			"\t\tfontColor: '#',",
+			"\t\tbackgroundColor: '#',",
+			"\t},",
+			"};\n",
+			"export default theme;\n",
+		],
+		"description": "Log output to console"
+	}
+}
