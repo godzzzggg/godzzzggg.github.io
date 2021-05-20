@@ -6,7 +6,7 @@ import {
 import Themes, { ThemeType } from '@/themes';
 import Header from '@/components/header';
 import Router from '@/router';
-import TopButton from '@/components/top';
+import ScrollToTop from '@/components/scroll-to-top';
 import './App.css';
 
 type ChildProps = {
@@ -39,7 +39,7 @@ const child = ({ styled, state, actions }: ChildProps) => {
         <Container>
           <Router />
         </Container>
-        <TopButton />
+        <ScrollToTop />
       </ThemeStyleProvider>
     </>
   );
