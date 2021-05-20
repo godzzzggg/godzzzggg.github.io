@@ -109,7 +109,7 @@ const Introduce: React.FC = () => {
             React Context API를 사용해 상태 관리를 했습니다.
             emotion에서 제공하는 ThemeProvider를 사용해 여러 Theme로 변경할 수 있는 기능을 추가했습니다.
           `,
-          link: 'https://godzzzggg.github.io/portfolio-page/',
+          link: 'https://9days.dev/',
           stack: [TechStack.React, TechStack.TypeScript, TechStack.Emotion],
         },
       ],
