@@ -1,6 +1,6 @@
-import { ThemeType } from './index';
+import { Theme } from '@emotion/react';
 
-const theme: ThemeType = {
+const theme: Theme = {
   colors: {
     fontColor: '#62594d',
     backgroundColor: '#b5e3d8',

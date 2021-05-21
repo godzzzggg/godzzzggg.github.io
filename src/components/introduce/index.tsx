@@ -1,5 +1,5 @@
 import { Fragment, ReactNode } from 'react';
-import theme from '@/themes/styled';
+import styled from '@emotion/styled';
 import Project from './project';
 import Stack from '@/components/tech_stack';
 
@@ -24,7 +24,6 @@ type ItemProps = {
 };
 
 const Item = ({ title, contents, children }: ItemProps) => {
-  const { styled } = theme;
   const Container = styled.div`
     margin-bottom: 50px;
   `;

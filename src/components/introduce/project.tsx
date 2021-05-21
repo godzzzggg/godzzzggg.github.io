@@ -1,4 +1,4 @@
-import theme from '@/themes/styled';
+import styled from '@emotion/styled';
 import Stack from '@/components/tech_stack';
 
 type ProjectProps = {
@@ -10,7 +10,6 @@ type ProjectProps = {
 };
 
 const Project = (props: ProjectProps) => {
-  const { styled } = theme;
   const Container = styled.li`
     position: relative;
     margin-top: 10px;

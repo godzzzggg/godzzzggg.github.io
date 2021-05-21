@@ -1,6 +1,6 @@
 import { withRouter, RouteComponentProps } from 'react-router';
-import theme from '@/themes/styled';
-import { ThemeType } from '@/themes';
+import { Theme } from '@emotion/react';
+import styled from '@emotion/styled';
 import SelectTheme from '@/components/theme';
 import CommonStyle from '@/style';
 import { BackButton } from '@/components/button';
@@ -9,7 +9,7 @@ import { Github } from '@/components/button';
 type HeaderProps = {
   state: {
     theme: string;
-    theme_list: [string, ThemeType][];
+    theme_list: [string, Theme][];
   };
   actions: {
     setTheme: Function;
@@ -22,7 +22,6 @@ const Header = ({
   actions,
   location,
 }: HeaderProps & RouteComponentProps) => {
-  const { styled } = theme;
   const Container = styled.div`
     z-index: 1;
     position: fixed;

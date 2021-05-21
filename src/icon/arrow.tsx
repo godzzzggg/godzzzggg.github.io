@@ -1,12 +1,11 @@
 import { CSSProperties } from 'react';
-import theme from '@/themes/styled';
+import styled from '@emotion/styled';
 
 type ArrowProps = {
   style?: CSSProperties;
 };
 
 const Arrow = ({ style }: ArrowProps) => {
-  const { styled } = theme;
   const Svg = styled.svg`
     stroke: ${({ theme }) => theme.colors.fontColor};
     stroke-width: 5px;

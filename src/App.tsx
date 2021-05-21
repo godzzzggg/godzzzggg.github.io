@@ -1,19 +1,20 @@
+import { Global, css, useTheme, Theme } from '@emotion/react';
+import styled from '@emotion/styled';
 import {
   ThemeProvider,
   ThemeConsumer,
   ThemeStyleProvider,
 } from '@/contexts/theme';
-import Themes, { ThemeType } from '@/themes';
+import Themes from '@/themes';
 import Header from '@/components/header';
 import Router from '@/router';
 import ScrollToTop from '@/components/scroll-to-top';
 import './App.css';
 
 type ChildProps = {
-  styled: any;
   state: {
     theme: string;
-    theme_list: [string, ThemeType][];
+    theme_list: [string, Theme][];
   };
   actions: {
     setTheme: Function;
@@ -21,27 +22,40 @@ type ChildProps = {
   };
 };
 
-const child = ({ styled, state, actions }: ChildProps) => {
-  const theme = Themes[state.theme] || Themes.Default;
-  const Container = styled.div((props: any) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    height: '100%',
-    backgroundColor: props.theme.colors.backgroundColor,
-    color: props.theme.colors.fontColor,
-  }));
+const GlobalStyle = () => {
+  const theme = useTheme();
   return (
-    <>
-      <ThemeStyleProvider theme={theme}>
-        <Header state={state} actions={actions} />
-        <Container>
-          <Router />
-        </Container>
-        <ScrollToTop />
-      </ThemeStyleProvider>
-    </>
+    <Global
+      styles={css`
+        body {
+          background-color: ${theme.colors.backgroundColor};
+          color: ${theme.colors.fontColor};
+        }
+      `}
+    />
+  );
+};
+
+const child = ({ state, actions }: ChildProps) => {
+  const theme = Themes[state.theme] || Themes.Default;
+  const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
+    color: ${({ theme }) => theme.colors.fontColor};
+  `;
+  return (
+    <ThemeStyleProvider theme={theme}>
+      <GlobalStyle />
+      <Header state={state} actions={actions} />
+      <Container>
+        <Router />
+      </Container>
+      <ScrollToTop />
+    </ThemeStyleProvider>
   );
 };
 

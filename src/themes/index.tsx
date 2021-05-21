@@ -1,13 +1,11 @@
-import ThemeType from './type';
+import { Theme } from '@emotion/react';
 import Black from './black';
 import White from './white';
 import Orange from './orange';
 import MintChoco from './mintchoco';
 import Warm from './warm';
 
-export type { ThemeType };
-
-const Themes: { [index: string]: ThemeType } = {
+const Themes: { [index: string]: Theme } = {
   Default: Black,
   Black,
   White,

@@ -1,10 +1,9 @@
 import { CSSProperties, MouseEventHandler, ReactNode } from 'react';
-import theme from '@/themes/styled';
+import styled from '@emotion/styled';
 import BackButton from './backButton';
 import Github from './github';
 
 export const getButton = (variant: string | undefined) => {
-  const { styled } = theme;
   const base = styled.button`
     display: flex;
     justify-content: center;

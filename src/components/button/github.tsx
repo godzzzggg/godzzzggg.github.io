@@ -1,10 +1,9 @@
-import theme from '@/themes/styled';
+import styled from '@emotion/styled';
 import GithubIcon from '@/icon/github';
 import Button from './index';
 import { complementaryColor } from '@/utils/colors';
 
 const Github = () => {
-  const { styled } = theme;
   const Container = styled.div`
     position: absolute;
     top: 16px;

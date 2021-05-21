@@ -1,23 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import theme from '@/themes/styled';
+import styled from '@emotion/styled';
 import Item from '@/components/introduce';
-import CommonStyle from '@/style';
-import { TechStack } from '@/constant/techStack';
 import Button, { BackButton } from '@/components/button';
+import Container from '@/components/page-container';
+import { TechStack } from '@/constant/techStack';
 import { getAge } from '@/utils/date';
 
 const Introduce: React.FC = () => {
-  const { styled } = theme;
-  const Container = styled.div`
-    padding-top: ${CommonStyle.headerHeight};
-    max-width: 768px;
-    width: 100%;
-    height: calc(100% - ${CommonStyle.headerHeight});
-    @media (max-width: 768px) {
-      max-width: 420px;
-    }
-  `;
   const ItemList = styled.div`
     padding: 16px 16px 50px 16px;
   `;
@@ -67,7 +57,7 @@ const Introduce: React.FC = () => {
             {
               title: '펫프렌즈 쇼핑몰 유지&보수 (sub)',
               date: '2019.12 ~ 2021.02',
-              stack: [TechStack.Vue, TechStack.SassSCSS],
+              stack: [TechStack.Vue, TechStack.Vuex, TechStack.SassSCSS],
               achieve: [
                 '2021.02 회원 등급 및 적립금 도입으로 My페이지 개편',
                 '2020.05 후기 개편으로 사진/동영상 업로드 추가',

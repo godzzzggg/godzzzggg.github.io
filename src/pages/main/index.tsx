@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import theme from "@/themes/styled";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import styled from '@emotion/styled';
 
 const Main: React.FC = () => {
-  const { styled } = theme;
   const MainContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -48,13 +47,13 @@ const Main: React.FC = () => {
     }
   `;
 
-  const [hover_text, setText] = useState("　");
+  const [hover_text, setText] = useState('　');
   const buttons = [
-    { title: "소개", href: "/introduce", hover: "I AM" },
-    { title: "프로젝트", href: "/projects", hover: "PROJECTS" },
+    { title: '소개', href: '/introduce', hover: 'I AM' },
+    { title: '프로젝트', href: '/projects', hover: 'PROJECTS' },
   ];
   const onMouseEnter = (index: number) => setText(buttons[index].hover);
-  const onMouseLeave = () => setText("　");
+  const onMouseLeave = () => setText('　');
   return (
     <MainContainer>
       <HoverText>{hover_text}</HoverText>

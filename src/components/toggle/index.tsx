@@ -1,15 +1,14 @@
-import React from "react";
-import theme from "@/themes/styled";
+import React from 'react';
+import styled from '@emotion/styled';
 
 type ToggleProps = {
-  is_enabled: boolean
-  left_text?: string
-  right_text?: string
-  onClick?: React.MouseEventHandler
-}
+  is_enabled: boolean;
+  left_text?: string;
+  right_text?: string;
+  onClick?: React.MouseEventHandler;
+};
 
 const Toggle = (props: ToggleProps) => {
-  const { styled } = theme;
   const ToggleBody = styled.div`
     position: relative;
     width: 30px;
@@ -31,19 +30,21 @@ const Toggle = (props: ToggleProps) => {
   `;
   const LeftText = styled.div`
     margin-right: 10px;
-    color: ${props => props.theme.colors?.fontColor}
+    color: ${({ theme }) => theme.colors.fontColor};
   `;
   const RightText = styled.div`
     margin-left: 10px;
-    color: ${props => props.theme.colors?.fontColor}
+    color: ${({ theme }) => theme.colors.fontColor};
   `;
-  return (<>
-    {props?.left_text ? <LeftText>{props?.left_text}</LeftText> : null}
-    <ToggleBody onClick={props?.onClick}>
-      <Handle onClick={props?.onClick} />
-    </ToggleBody>
-    {props?.right_text ? <RightText>{props?.right_text}</RightText> : null}
-  </>);
+  return (
+    <>
+      {props?.left_text ? <LeftText>{props?.left_text}</LeftText> : null}
+      <ToggleBody onClick={props?.onClick}>
+        <Handle onClick={props?.onClick} />
+      </ToggleBody>
+      {props?.right_text ? <RightText>{props?.right_text}</RightText> : null}
+    </>
+  );
 };
 
 export default Toggle;

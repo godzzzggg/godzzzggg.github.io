@@ -1,7 +1,6 @@
-import theme from '@/themes/styled';
+import styled from '@emotion/styled';
 
 const Github = () => {
-  const { styled } = theme;
   const Svg = styled.svg`
     fill: ${({ theme }) => theme.colors.fontColor};
   `;

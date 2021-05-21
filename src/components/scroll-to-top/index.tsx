@@ -1,11 +1,10 @@
-import theme from '@/themes/styled';
+import styled from '@emotion/styled';
 import Button from '@/components/button';
 import Arrow from '@/icon/arrow';
 import throttle from '@/utils/simple-throttle';
 import { useState } from 'react';
 
 const Top = () => {
-  const { styled } = theme;
   const [is_show_top, setShowTop] = useState(false);
   const [inner_width, setWidth] = useState(window.innerWidth);
   window.addEventListener(
